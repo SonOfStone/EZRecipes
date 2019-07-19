@@ -3,10 +3,10 @@
   <groupId>com.revature.727Enigma</groupId>
   <artifactId>EZRecipes</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <properties>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.target.source>1.8</maven.target.source>
-	</properties>
+    <properties>
+	    <maven.compiler.source>1.5</maven.compiler.source>
+	    <maven.target.source>1.5</maven.target.source>
+    </properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
