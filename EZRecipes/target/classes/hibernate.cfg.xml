@@ -23,7 +23,7 @@
 		<mapping class="com.revature.model.User"/>
 		<mapping class="com.revature.model.Recipe"/>
 		<mapping class="com.revature.model.Ingredient"/>
-		<mapping class="com.revature.model.UserRecipe"/>
+		<mapping class="com.revature.model.Favorite"/>
 		<mapping class="com.revature.model.Restriction"/>
 		<mapping class="com.revature.model.Rating"/>
 	</session-factory>
