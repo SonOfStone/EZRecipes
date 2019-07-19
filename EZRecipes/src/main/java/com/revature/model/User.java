@@ -1,20 +1,37 @@
 package com.revature.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name ="users", schema ="ezrecipes")
 public class User {
+@Id
+@Column(name ="userid")
 private int userId;
+@Column(name ="first")
 private String first;
+@Column(name = "last")
 private String last;
+@Column(name = "username")
 private String username;
+@Column(name="password")
 private String password;
-private int restrictionId;
-public User(int userId, String first, String last, String username, String password, int restrictionId) {
+@OneToOne
+@JoinColumn(name="restrictionid")
+private Restrictions restrictions;
+public User(int userId, String first, String last, String username, String password, Restrictions restrictions) {
 	super();
 	this.userId = userId;
 	this.first = first;
 	this.last = last;
 	this.username = username;
 	this.password = password;
-	this.restrictionId = restrictionId;
+	this.restrictions = restrictions;
 }
 public User() {
 	super();
@@ -23,8 +40,11 @@ public User() {
 @Override
 public String toString() {
 	return "User [userId=" + userId + ", first=" + first + ", last=" + last + ", username=" + username + ", password="
-			+ password + ", restrictionId=" + restrictionId + "]";
+			+ password + ", restrictionId=" + restrictions + "]";
 }
+
+
+
 @Override
 public int hashCode() {
 	final int prime = 31;
@@ -32,7 +52,7 @@ public int hashCode() {
 	result = prime * result + ((first == null) ? 0 : first.hashCode());
 	result = prime * result + ((last == null) ? 0 : last.hashCode());
 	result = prime * result + ((password == null) ? 0 : password.hashCode());
-	result = prime * result + restrictionId;
+	result = prime * result + ((restrictions == null) ? 0 : restrictions.hashCode());
 	result = prime * result + userId;
 	result = prime * result + ((username == null) ? 0 : username.hashCode());
 	return result;
@@ -61,7 +81,10 @@ public boolean equals(Object obj) {
 			return false;
 	} else if (!password.equals(other.password))
 		return false;
-	if (restrictionId != other.restrictionId)
+	if (restrictions == null) {
+		if (other.restrictions != null)
+			return false;
+	} else if (!restrictions.equals(other.restrictions))
 		return false;
 	if (userId != other.userId)
 		return false;
@@ -102,10 +125,10 @@ public String getPassword() {
 public void setPassword(String password) {
 	this.password = password;
 }
-public int getRestrictionId() {
-	return restrictionId;
+public Restrictions getRestrictionId() {
+	return restrictions;
 }
-public void setRestrictionId(int restrictionId) {
-	this.restrictionId = restrictionId;
+public void setRestrictionId(Restrictions restrictions) {
+	this.restrictions = restrictions;
 }
 }
