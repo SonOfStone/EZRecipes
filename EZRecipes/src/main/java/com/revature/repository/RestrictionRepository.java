@@ -1,5 +1,7 @@
 package com.revature.repository;
 
-public interface RestrictionRepository {
+import com.revature.model.Restriction;
 
+public interface RestrictionRepository {
+	Restriction getRestrictionsByUserId(int id);
 }
