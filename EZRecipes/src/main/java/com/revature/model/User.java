@@ -2,6 +2,7 @@ package com.revature.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -21,8 +22,7 @@ private String last;
 private String username;
 @Column(name="password")
 private String password;
-@OneToOne
-@JoinColumn(name="restrictionid")
+@OneToOne(fetch = FetchType.EAGER, mappedBy="restrictionid")
 private Restrictions restrictions;
 public User(int userId, String first, String last, String username, String password, Restrictions restrictions) {
 	super();
