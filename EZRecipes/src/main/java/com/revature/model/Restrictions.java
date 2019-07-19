@@ -1,11 +1,25 @@
 package com.revature.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="restrictions", schema = "ezrecipes")
 public class Restrictions {
+@Id
+@Column(name="restrictionid")
 private int restrictionId;
+@Column(name="dairy")
 private boolean dairy;
+@Column(name="vegetarian")
 private boolean vegetarian;
+@Column(name="vegan")
 private boolean vegan;
+@Column(name="gluten")
 private boolean gluten;
+@Column(name="nuts")
 private boolean nuts;
 public Restrictions(int restrictionId, boolean dairy, boolean vegetarian, boolean vegan, boolean gluten, boolean nuts) {
 	super();
