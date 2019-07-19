@@ -18,55 +18,55 @@ public class UserRepositoryImpl implements UserRepository{
 
 	public User getUserByUsername(String username) {
 		User user = null;
-		Session s = null;
+		Session session = null;
 		try {
-			s= SessionFactory.getSession();
-			CriteriaBuilder cb = s.getCriteriaBuilder();
-			CriteriaQuery<User> cq = cb.createQuery(User.class);
-			Root<User> root = cq.from(User.class);
-			cq.select(root).where(cb.equal(root.get("username"), username));
-			Query<User> q = s.createQuery(cq);
-			user=q.getSingleResult();
+			session= SessionFactory.getSession();
+			CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+			CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
+			Root<User> root = criteriaQuery.from(User.class);
+			criteriaQuery.select(root).where(criteriaBuilder.equal(root.get("username"), username));
+			Query<User> query = session.createQuery(criteriaQuery);
+			user=query.getSingleResult();
 		}catch(HibernateException e) {
 			e.printStackTrace();
 		}finally {
-			s.close();
+			session.close();
 		}
 		return user;
 	}
 
 	public List<User> getAllUsers() {
 		List<User> users = new ArrayList<User>();
-		Session s = null;
+		Session session = null;
 		try {
-			s=SessionFactory.getSession();
-			CriteriaBuilder cb = s.getCriteriaBuilder();
-			CriteriaQuery<User> cq = cb.createQuery(User.class);
-			Query<User> q= s.createQuery(cq);
-			users = q.list();
+			session=SessionFactory.getSession();
+			CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+			CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
+			Query<User> query= session.createQuery(criteriaQuery);
+			users = query.list();
 		}catch(HibernateException e) {
 			e.printStackTrace();
 		}finally {
-			s.close();
+			session.close();
 		}
 		return users;
 	}
 
 	public User getUserById(int id) {
 		User user = null;
-		Session s = null;
+		Session session = null;
 		try {
-			s= SessionFactory.getSession();
-			CriteriaBuilder cb = s.getCriteriaBuilder();
-			CriteriaQuery<User> cq = cb.createQuery(User.class);
-			Root<User> root = cq.from(User.class);
-			cq.select(root).where(cb.equal(root.get("userid"), id));
-			Query<User> q = s.createQuery(cq);
-			user=q.getSingleResult();
+			session= SessionFactory.getSession();
+			CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+			CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
+			Root<User> root = criteriaQuery.from(User.class);
+			criteriaQuery.select(root).where(criteriaBuilder.equal(root.get("userid"), id));
+			Query<User> query = session.createQuery(criteriaQuery);
+			user=query.getSingleResult();
 		}catch(HibernateException e) {
 			e.printStackTrace();
 		}finally {
-			s.close();
+			session.close();
 		}
 		return user;
 	}
