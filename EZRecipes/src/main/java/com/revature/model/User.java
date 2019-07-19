@@ -23,8 +23,8 @@ private String username;
 @Column(name="password")
 private String password;
 @OneToOne(fetch = FetchType.EAGER, mappedBy="restrictionid")
-private Restrictions restrictions;
-public User(int userId, String first, String last, String username, String password, Restrictions restrictions) {
+private Restriction restrictions;
+public User(int userId, String first, String last, String username, String password, Restriction restrictions) {
 	super();
 	this.userId = userId;
 	this.first = first;
@@ -125,10 +125,10 @@ public String getPassword() {
 public void setPassword(String password) {
 	this.password = password;
 }
-public Restrictions getRestrictionId() {
+public Restriction getRestrictionId() {
 	return restrictions;
 }
-public void setRestrictionId(Restrictions restrictions) {
+public void setRestrictionId(Restriction restrictions) {
 	this.restrictions = restrictions;
 }
 }

@@ -1,17 +1,17 @@
 package com.revature.model;
 
-public class Ratings {
+public class Rating {
 
 private User userId;
 private Recipe recipeId;
 private double rating;
-public Ratings(User userId, Recipe recipeId, double rating) {
+public Rating(User userId, Recipe recipeId, double rating) {
 	super();
 	this.userId = userId;
 	this.recipeId = recipeId;
 	this.rating = rating;
 }
-public Ratings() {
+public Rating() {
 	super();
 	// TODO Auto-generated constructor stub
 }
@@ -38,7 +38,7 @@ public boolean equals(Object obj) {
 		return false;
 	if (getClass() != obj.getClass())
 		return false;
-	Ratings other = (Ratings) obj;
+	Rating other = (Rating) obj;
 	if (Double.doubleToLongBits(rating) != Double.doubleToLongBits(other.rating))
 		return false;
 	if (recipeId == null) {
