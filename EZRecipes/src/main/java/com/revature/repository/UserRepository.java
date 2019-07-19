@@ -8,4 +8,5 @@ public interface UserRepository {
 	User getUserByUsername(String username);
 	List<User> getAllUsers();
 	User getUserById(int id);
+	void deleteUserById(int id);
 }
