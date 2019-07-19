@@ -1,5 +1,5 @@
 package com.revature.repository;
 
-public interface RatingsRepository {
+public interface RatingRepository {
 
 }

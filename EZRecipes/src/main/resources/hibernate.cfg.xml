@@ -22,9 +22,9 @@
 		<mapping class="com.revature.model.Pantry"/>
 		<mapping class="com.revature.model.User"/>
 		<mapping class="com.revature.model.Recipe"/>
-		<mapping class="com.revature.model.Ingredients"/>
-		<mapping class="com.revature.model.UserRecipes"/>
-		<mapping class="com.revature.model.Restrictions"/>
-		<mapping class="com.revature.model.Ratings"/>
+		<mapping class="com.revature.model.Ingredient"/>
+		<mapping class="com.revature.model.UserRecipe"/>
+		<mapping class="com.revature.model.Restriction"/>
+		<mapping class="com.revature.model.Rating"/>
 	</session-factory>
 </hibernate-configuration>

@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="restrictions", schema = "ezrecipes")
-public class Restrictions {
+public class Restriction {
 @Id
 @Column(name="restrictionid")
 private int restrictionId;
@@ -21,7 +21,7 @@ private boolean vegan;
 private boolean gluten;
 @Column(name="nuts")
 private boolean nuts;
-public Restrictions(int restrictionId, boolean dairy, boolean vegetarian, boolean vegan, boolean gluten, boolean nuts) {
+public Restriction(int restrictionId, boolean dairy, boolean vegetarian, boolean vegan, boolean gluten, boolean nuts) {
 	super();
 	this.restrictionId = restrictionId;
 	this.dairy = dairy;
@@ -30,7 +30,7 @@ public Restrictions(int restrictionId, boolean dairy, boolean vegetarian, boolea
 	this.gluten = gluten;
 	this.nuts = nuts;
 }
-public Restrictions() {
+public Restriction() {
 	super();
 	// TODO Auto-generated constructor stub
 }
@@ -59,7 +59,7 @@ public boolean equals(Object obj) {
 		return false;
 	if (getClass() != obj.getClass())
 		return false;
-	Restrictions other = (Restrictions) obj;
+	Restriction other = (Restriction) obj;
 	if (dairy != other.dairy)
 		return false;
 	if (gluten != other.gluten)

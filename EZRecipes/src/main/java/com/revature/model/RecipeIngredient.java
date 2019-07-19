@@ -1,5 +1,5 @@
 package com.revature.model;
 
-public class UserRecipes {
+public class RecipeIngredient {
 
 }
