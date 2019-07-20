@@ -7,10 +7,11 @@ import javax.persistence.criteria.Root;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.revature.model.Restriction;
 import com.revature.util.SessionFactory;
-
+@Repository("restrictionRepo")
 public class RestrictionRepositoryImpl implements RestrictionRepository{
 
 	public Restriction getRestrictionsByUserId(int id) {

@@ -1,6 +1,7 @@
 package com.revature.repository;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.model.User;
 import com.revature.util.SessionFactory;
+
 
 @Repository("userRepo")
 public class UserRepositoryImpl implements UserRepository {
