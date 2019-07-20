@@ -13,10 +13,12 @@ public class Ingredient {
 private int ingredientId;
 @Column(name="name")
 private String name;
+
 public Ingredient() {
 	super();
 	// TODO Auto-generated constructor stub
 }
+
 public Ingredient(int ingredientId, String name) {
 	super();
 	this.ingredientId = ingredientId;

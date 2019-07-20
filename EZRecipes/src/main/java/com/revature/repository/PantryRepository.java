@@ -1,5 +1,10 @@
 package com.revature.repository;
 
-public interface PantryRepository {
+import com.revature.model.Pantry;
 
+public interface PantryRepository {
+	Pantry getPantry(int userid);
+	void updatePantry(int userid, Pantry inputPantry);
+	void insertPantry(Pantry inputPantry);
+	void deletePantry(int userid);
 }
