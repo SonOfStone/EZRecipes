@@ -123,7 +123,7 @@ public class AppConfiguration {
 		return new UserRepositoryImpl();
 	}
 
-	@Bean(value = "userSerivice")
+	@Bean(value = "userService")
 	@Scope(scopeName = "singleton")
 	public UserService getUserService() {
 		return new UserServiceImpl(new UserRepositoryImpl());
