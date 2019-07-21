@@ -19,7 +19,7 @@ public class UserControllerImpl implements UserController {
 	private UserService userService;
 	
 	@Autowired
-	public void setMs(UserService userService) {
+	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
 	
