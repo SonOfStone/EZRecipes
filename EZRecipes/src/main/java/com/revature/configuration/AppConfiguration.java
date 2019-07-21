@@ -61,17 +61,6 @@ public class AppConfiguration {
 	public IngredientService getIngredientService() {
 		return new IngredientServiceImpl( new IngredientRepositoryImpl());
 	}
-
-//	@Bean(value = "pantryRepo")
-//	@Scope(scopeName = "singleton")
-//	public PantryRepository getPantryRepository() {
-//		return new PantryRepositoryImpl();
-//	}
-//	@Bean(value = "pantryService")
-//	@Scope(scopeName = "singleton")
-//	public PantryService getPantryService() {
-//		return new PantryServiceImpl(new PantryRepositoryImpl());
-//	}
 	
 	@Bean(value = "ratingRepo")
 	@Scope(scopeName = "singleton")
