@@ -9,8 +9,6 @@ import com.revature.repository.FavoriteRepository;
 import com.revature.repository.FavoriteRepositoryImpl;
 import com.revature.repository.IngredientRepository;
 import com.revature.repository.IngredientRepositoryImpl;
-import com.revature.repository.PantryRepository;
-import com.revature.repository.PantryRepositoryImpl;
 import com.revature.repository.RatingRepository;
 import com.revature.repository.RatingRepositoryImpl;
 import com.revature.repository.RecipeIngredientRepository;
@@ -25,8 +23,6 @@ import com.revature.service.FavoriteService;
 import com.revature.service.FavoriteServiceImpl;
 import com.revature.service.IngredientService;
 import com.revature.service.IngredientServiceImpl;
-import com.revature.service.PantryService;
-import com.revature.service.PantryServiceImpl;
 import com.revature.service.RatingService;
 import com.revature.service.RatingServiceImpl;
 import com.revature.service.RecipeIngredientService;
@@ -64,17 +60,6 @@ public class AppConfiguration {
 	@Scope(scopeName = "singleton")
 	public IngredientService getIngredientService() {
 		return new IngredientServiceImpl( new IngredientRepositoryImpl());
-	}
-
-	@Bean(value = "pantryRepo")
-	@Scope(scopeName = "singleton")
-	public PantryRepository getPantryRepository() {
-		return new PantryRepositoryImpl();
-	}
-	@Bean(value = "pantryService")
-	@Scope(scopeName = "singleton")
-	public PantryService getPantryService() {
-		return new PantryServiceImpl(new PantryRepositoryImpl());
 	}
 	
 	@Bean(value = "ratingRepo")
