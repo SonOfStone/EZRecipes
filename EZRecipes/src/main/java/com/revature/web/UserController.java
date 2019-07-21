@@ -1,5 +1,9 @@
 package com.revature.web;
 
-public interface UserController {
+import java.util.List;
 
+import com.revature.model.Ingredient;
+
+public interface UserController {
+	public List<Ingredient> getPantryById(int userid);
 }
