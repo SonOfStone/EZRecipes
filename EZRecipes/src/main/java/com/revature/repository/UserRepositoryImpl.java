@@ -91,4 +91,20 @@ public class UserRepositoryImpl implements UserRepository {
 		}
 	}
 
+	public void updateUser(User user) {
+		Session session = null;
+		Transaction tx = null;
+		try {
+			session = SessionFactory.getSession();
+			tx = session.getTransaction();
+			session.update(user);
+			tx.commit();
+		}catch(HibernateException e) {
+			e.printStackTrace();
+			tx.rollback();
+		}finally {
+			session.close();
+		}
+	}
+
 }

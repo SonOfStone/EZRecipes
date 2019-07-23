@@ -1,5 +1,8 @@
 package com.revature.aspect;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
@@ -43,7 +46,11 @@ public class LoggingAspect {
 	
 	@AfterThrowing(pointcut="logWithinServicePackage()", throwing="exceptionThrown")
 	public void logAfterException(JoinPoint jp, Exception exceptionThrown) {
+		StringWriter sw = new StringWriter();
+		PrintWriter pw = new PrintWriter(sw);
+		exceptionThrown.printStackTrace(pw);
 		
+		LOG.info("The " + jp.getSignature().getName() + " method threw an exception: \n" + sw.toString());
 	}
 	
 	
