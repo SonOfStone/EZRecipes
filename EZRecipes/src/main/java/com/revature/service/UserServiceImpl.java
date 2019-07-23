@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.model.Ingredient;
+import com.revature.model.User;
 import com.revature.repository.UserRepository;
 
 @Service("userService")
@@ -25,9 +26,12 @@ public class UserServiceImpl implements UserService {
 		this.userRepository = userRepository;
 	}
 
+
+
 	public List<Ingredient> getPantryById(int userid) {
 		List<Ingredient> pantry = userRepository.getUserById(userid).getPantry();
 		return pantry;
 	}
+
 
 }
