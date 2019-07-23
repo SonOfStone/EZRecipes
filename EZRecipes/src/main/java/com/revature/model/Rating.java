@@ -1,14 +1,22 @@
 package com.revature.model;
 
-public class Rating {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="ratings", schema="ezrecipes")
+public class Rating {
+@Column(name="userId")
 private User userId;
-private meals mealsId;
+@Column(name="idMeals")
+private meals idMeals;
+@Column(name = "rating")
 private double rating;
-public Rating(User userId, meals mealsId, double rating) {
+public Rating(User userId, meals idMeals, double rating) {
 	super();
 	this.userId = userId;
-	this.mealsId = mealsId;
+	this.idMeals= idMeals;
 	this.rating = rating;
 }
 public Rating() {
@@ -17,13 +25,13 @@ public Rating() {
 }
 @Override
 public String toString() {
-	return "Rating [userId=" + userId + ", mealsId=" + mealsId + ", rating=" + rating + "]";
+	return "Rating [userId=" + userId + ", idMeals=" + idMeals + ", rating=" + rating + "]";
 }
 @Override
 public int hashCode() {
 	final int prime = 31;
 	int result = 1;
-	result = prime * result + ((mealsId == null) ? 0 : mealsId.hashCode());
+	result = prime * result + ((idMeals == null) ? 0 : idMeals.hashCode());
 	long temp;
 	temp = Double.doubleToLongBits(rating);
 	result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -39,10 +47,10 @@ public boolean equals(Object obj) {
 	if (getClass() != obj.getClass())
 		return false;
 	Rating other = (Rating) obj;
-	if (mealsId == null) {
-		if (other.mealsId != null)
+	if (idMeals == null) {
+		if (other.idMeals != null)
 			return false;
-	} else if (!mealsId.equals(other.mealsId))
+	} else if (!idMeals.equals(other.idMeals))
 		return false;
 	if (Double.doubleToLongBits(rating) != Double.doubleToLongBits(other.rating))
 		return false;
@@ -59,11 +67,11 @@ public User getUserId() {
 public void setUserId(User userId) {
 	this.userId = userId;
 }
-public meals getMealsId() {
-	return mealsId;
+public meals getIdMeals() {
+	return idMeals;
 }
-public void setMealsId(meals mealsId) {
-	this.mealsId = mealsId;
+public void setIdMeals(meals idMeals) {
+	this.idMeals = idMeals;
 }
 public double getRating() {
 	return rating;
