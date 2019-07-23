@@ -13,12 +13,12 @@ import com.revature.repository.RatingRepository;
 import com.revature.repository.RatingRepositoryImpl;
 import com.revature.repository.RecipeIngredientRepository;
 import com.revature.repository.RecipeIngredientRepositoryImpl;
-import com.revature.repository.RecipeRepository;
-import com.revature.repository.RecipeRepositoryImpl;
 import com.revature.repository.RestrictionRepository;
 import com.revature.repository.RestrictionRepositoryImpl;
 import com.revature.repository.UserRepository;
 import com.revature.repository.UserRepositoryImpl;
+import com.revature.repository.mealsRepository;
+import com.revature.repository.mealsRepositoryImpl;
 import com.revature.service.FavoriteService;
 import com.revature.service.FavoriteServiceImpl;
 import com.revature.service.IngredientService;
@@ -27,12 +27,12 @@ import com.revature.service.RatingService;
 import com.revature.service.RatingServiceImpl;
 import com.revature.service.RecipeIngredientService;
 import com.revature.service.RecipeIngredientServiceImpl;
-import com.revature.service.RecipeService;
-import com.revature.service.RecipeServiceImpl;
 import com.revature.service.RestrictionService;
 import com.revature.service.RestrictionServiceImpl;
 import com.revature.service.UserService;
 import com.revature.service.UserServiceImpl;
+import com.revature.service.mealsService;
+import com.revature.service.mealsServiceImpl;
 
 @Configuration
 @EnableAspectJAutoProxy(proxyTargetClass=true)
@@ -82,15 +82,15 @@ public class AppConfiguration {
 	public RecipeIngredientService getRecipeIngredientService() {
 		return new RecipeIngredientServiceImpl(new RecipeIngredientRepositoryImpl());
 	}
-	@Bean(value = "recipeRepo")
+	@Bean(value = "mealsRepo")
 	@Scope(scopeName = "singleton")
-	public RecipeRepository getRecipeRepository() {
-		return new RecipeRepositoryImpl();
+	public mealsRepository getmealsRepository() {
+		return new mealsRepositoryImpl();
 	}
-	@Bean(value = "recipeService")
+	@Bean(value = "mealsService")
 	@Scope(scopeName = "singleton")
-	public RecipeService getRecipeService() {
-		return new RecipeServiceImpl(new RecipeRepositoryImpl());
+	public mealsService getmealsService() {
+		return new mealsServiceImpl( new mealsRepositoryImpl() );
 	}
 	@Bean(value = "restrictionRepo")
 	@Scope(scopeName = "singleton")

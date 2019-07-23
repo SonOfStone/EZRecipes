@@ -1,5 +1,5 @@
 package com.revature.service;
 
-public interface RecipeService {
+public interface mealsService {
 
 }

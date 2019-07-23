@@ -3,12 +3,12 @@ package com.revature.model;
 public class Rating {
 
 private User userId;
-private Recipe recipeId;
+private meals mealsId;
 private double rating;
-public Rating(User userId, Recipe recipeId, double rating) {
+public Rating(User userId, meals mealsId, double rating) {
 	super();
 	this.userId = userId;
-	this.recipeId = recipeId;
+	this.mealsId = mealsId;
 	this.rating = rating;
 }
 public Rating() {
@@ -17,16 +17,16 @@ public Rating() {
 }
 @Override
 public String toString() {
-	return "Ratings [userId=" + userId + ", recipeId=" + recipeId + ", rating=" + rating + "]";
+	return "Rating [userId=" + userId + ", mealsId=" + mealsId + ", rating=" + rating + "]";
 }
 @Override
 public int hashCode() {
 	final int prime = 31;
 	int result = 1;
+	result = prime * result + ((mealsId == null) ? 0 : mealsId.hashCode());
 	long temp;
 	temp = Double.doubleToLongBits(rating);
 	result = prime * result + (int) (temp ^ (temp >>> 32));
-	result = prime * result + ((recipeId == null) ? 0 : recipeId.hashCode());
 	result = prime * result + ((userId == null) ? 0 : userId.hashCode());
 	return result;
 }
@@ -39,12 +39,12 @@ public boolean equals(Object obj) {
 	if (getClass() != obj.getClass())
 		return false;
 	Rating other = (Rating) obj;
-	if (Double.doubleToLongBits(rating) != Double.doubleToLongBits(other.rating))
-		return false;
-	if (recipeId == null) {
-		if (other.recipeId != null)
+	if (mealsId == null) {
+		if (other.mealsId != null)
 			return false;
-	} else if (!recipeId.equals(other.recipeId))
+	} else if (!mealsId.equals(other.mealsId))
+		return false;
+	if (Double.doubleToLongBits(rating) != Double.doubleToLongBits(other.rating))
 		return false;
 	if (userId == null) {
 		if (other.userId != null)
@@ -59,16 +59,17 @@ public User getUserId() {
 public void setUserId(User userId) {
 	this.userId = userId;
 }
-public Recipe getRecipeId() {
-	return recipeId;
+public meals getMealsId() {
+	return mealsId;
 }
-public void setRecipeId(Recipe recipeId) {
-	this.recipeId = recipeId;
+public void setMealsId(meals mealsId) {
+	this.mealsId = mealsId;
 }
 public double getRating() {
 	return rating;
 }
 public void setRating(double rating) {
 	this.rating = rating;
+
 }
 }

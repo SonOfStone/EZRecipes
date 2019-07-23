@@ -3,18 +3,18 @@ package com.revature.model;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="favorites", schema="ezrecipes")
+@Entity
+@Table(name="favorites", schema="ezrecipes")
 public class Favorite {
 private User userId;
-private Recipe recipeId;
+private meals mealsId;
 private String lastAccessed;
 @Override
 public int hashCode() {
 	final int prime = 31;
 	int result = 1;
 	result = prime * result + ((lastAccessed == null) ? 0 : lastAccessed.hashCode());
-	result = prime * result + ((recipeId == null) ? 0 : recipeId.hashCode());
+	result = prime * result + ((mealsId == null) ? 0 : mealsId.hashCode());
 	result = prime * result + ((userId == null) ? 0 : userId.hashCode());
 	return result;
 }
@@ -32,10 +32,10 @@ public boolean equals(Object obj) {
 			return false;
 	} else if (!lastAccessed.equals(other.lastAccessed))
 		return false;
-	if (recipeId == null) {
-		if (other.recipeId != null)
+	if (mealsId == null) {
+		if (other.mealsId != null)
 			return false;
-	} else if (!recipeId.equals(other.recipeId))
+	} else if (!mealsId.equals(other.mealsId))
 		return false;
 	if (userId == null) {
 		if (other.userId != null)
@@ -46,7 +46,7 @@ public boolean equals(Object obj) {
 }
 @Override
 public String toString() {
-	return "UserRecipe [userId=" + userId + ", recipeId=" + recipeId + ", lastAccessed=" + lastAccessed + "]";
+	return "UserRecipe [userId=" + userId + ", recipeId=" + mealsId + ", lastAccessed=" + lastAccessed + "]";
 }
 public User getUserId() {
 	return userId;
@@ -54,11 +54,11 @@ public User getUserId() {
 public void setUserId(User userId) {
 	this.userId = userId;
 }
-public Recipe getRecipeId() {
-	return recipeId;
+public meals getRecipeId() {
+	return mealsId;
 }
-public void setRecipeId(Recipe recipeId) {
-	this.recipeId = recipeId;
+public void setRecipeId(meals recipeId) {
+	this.mealsId = recipeId;
 }
 public String getLastAccessed() {
 	return lastAccessed;
@@ -66,10 +66,10 @@ public String getLastAccessed() {
 public void setLastAccessed(String lastAccessed) {
 	this.lastAccessed = lastAccessed;
 }
-public Favorite(User userId, Recipe recipeId, String lastAccessed) {
+public Favorite(User userId, meals recipeId, String lastAccessed) {
 	super();
 	this.userId = userId;
-	this.recipeId = recipeId;
+	this.mealsId = mealsId;
 	this.lastAccessed = lastAccessed;
 }
 public Favorite() {
