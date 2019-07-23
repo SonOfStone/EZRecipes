@@ -1,56 +1,115 @@
 package com.revature.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="meals", schema="ezrecipes")
 public class meals {
+	@Id
+	@Column(name ="idMeal")
 	private int idMeal;
+	@Column(name = "strMeal")
 	private String strMeal;
+	@Column(name = "strDrinkAlternate")
 	private String strDrinkAlternate;
+	@Column(name = "strCategory")
 	private String strCategory;
+	@Column(name = "strArea")
 	private String strArea;
+	@Column (name = "strInstructions")
 	private String strInstructions;
+	@Column(name = "strMealThumb")
 	private String strMealThumb;
+	@Column(name= "strTags")
 	private String strTags;
+	@Column(name="strYoutube")
 	private String strYoutube;
+	@Column(name="strIngredient1")
 	private String strIngredient1;
+	@Column(name="strIngredient2")
 	private String strIngredient2;
+	@Column(name="strIngredient3")
 	private String strTingredient3;
+	@Column(name="strIngredient4")
 	private String strIngredient4;
+	@Column(name="strIngredient5")
 	private String strIngredient5;
+	@Column(name="strIngredient6")
 	private String strIngredient6;
+	@Column(name="strIngredient7")
 	private String strIngredient7;
+	@Column(name="strIngredient8")
 	private String strIngredient8;
+	@Column(name="strIngredient9")
 	private String strIngredient9;
+	@Column(name="strIngredient10")
 	private String strIngredient10;
+	@Column(name="strIngredient11")
 	private String strIngredient11;
+	@Column(name="strIngredient12")
 	private String strIngredient12;
+	@Column(name="strIngredient13")
 	private String strIngredient13;
+	@Column(name="strIngredient14")
 	private String strIngredient14;
+	@Column(name="strIngredient15")
 	private String strIngredient15;
+	@Column(name="strIngredient16")
 	private String strIngredient16;
+	@Column(name="strIngredient17")
 	private String strIngredient17;
+	@Column(name="strIngredient18")
 	private String strIngredient18;
+	@Column(name="strIngredient19")
 	private String strIngredient19;
+	@Column(name="strIngredient20")
 	private String strIngredient20;
+	@Column(name="strMeasure1")
 	private String strMeasure1;
+	@Column(name="strMeasure2")
 	private String strMeasure2;
+	@Column(name="strMeasure3")
 	private String strMeasure3;
+	@Column(name="strMeasure4")
 	private String strMeasure4;
+	@Column(name="strMeasure5")
 	private String strMeasure5;
+	@Column(name="strMeasure6")
 	private String strMeasure6;
+	@Column(name="strMeasure7")
 	private String strMeasure7;
+	@Column(name="strMeasure8")
 	private String strMeasure8;
+	@Column(name="strMeasure9")
 	private String strMeasure9;
+	@Column(name="strMeasure10")
 	private String strMeasure10;
+	@Column(name="strMeasure11")
 	private String strMeasure11;
+	@Column(name="strMeasure12")
 	private String strMeasure12;
+	@Column(name="strMeasure13")
 	private String strMeasure13;
+	@Column(name="strMeasure14")
 	private String strMeasure14;
+	@Column(name="strMeasure15")
 	private String strMeasure15;
+	@Column(name="strMeasure16")
 	private String strMeasure16;
+	@Column(name="strMeasure17")
 	private String strMeasure17;
+	@Column(name="strMeasure18")
 	private String strMeasure18;
+	@Column(name="strMeasure19")
 	private String strMeasure19;
+	@Column(name="strMeasure20")
 	private String strMeasure20;
+	@Column(name="strSource")
 	private String strSource;
+	@Column(name="dateModified")
 	private String dateModified;
 
 	public meals(int idMeal, String strMeal, String strDrinkAlternate, String strCategory, String strArea,
