@@ -3,10 +3,12 @@ package com.revature.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Id;
 
 @Entity
 @Table(name = "ratings", schema = "ezrecipes")
 public class Rating {
+	@Id
 	@Column(name = "userId")
 	private User userId;
 	@Column(name = "idMeals")
