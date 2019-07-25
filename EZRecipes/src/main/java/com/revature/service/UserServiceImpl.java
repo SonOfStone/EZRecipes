@@ -2,6 +2,9 @@ package com.revature.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,5 +36,14 @@ public class UserServiceImpl implements UserService {
 		return pantry;
 	}
 
+	public boolean isValidUser(String username, String password, HttpServletRequest request,
+			HttpServletResponse response) {
+		User user =userRepository.getUserByUsername(username);
+		if(user.getPassword()==password) {
+			request.setAttribute("userid", user.getUserId());
+			return true;
+		}
+		return false;
+	}
 
 }
