@@ -1,5 +1,6 @@
 package com.revature.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +33,13 @@ public class UserControllerImpl implements UserController {
 		return pantry;
 	}
 	
-	@PostMapping(value="/pantry/update", consumes=MediaType.APPLICATION_JSON_VALUE)
-	public void postPantry(@RequestBody List<Ingredient> pantry, @RequestBody int userid) {
-		userService.setPantryById(pantry, userid);
+	@PostMapping(value="/pantry/update/{id}", consumes=MediaType.APPLICATION_JSON_VALUE)
+	public void postPantry(@PathVariable("id") int userid, @RequestBody Ingredient pantry) {
+		System.out.println("pls help me");
+		List<Ingredient> list = new ArrayList<Ingredient>();
+		list.add(pantry);
+		
+		userService.setPantryById(list, userid);
 	}
 
 }

@@ -8,5 +8,5 @@ import com.revature.model.Ingredient;
 
 public interface UserController {
 	public List<Ingredient> getPantryById(int userid);
-	public void postPantry(List<Ingredient> pantry, int userid);
+	//public void postPantry(Ingredient pantry, int userid);
 }
