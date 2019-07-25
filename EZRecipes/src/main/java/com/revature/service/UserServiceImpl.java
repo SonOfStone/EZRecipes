@@ -45,5 +45,25 @@ public class UserServiceImpl implements UserService {
 		
 		userRepository.updateUser(user);
 	}
+	
+	//sets the current pantry given a list of ingredients and a user id
+	//this will break given more than one item in the pantry
+	public void deletePantryItemById(List<Ingredient> pantry, int userid) {
+		User user = userRepository.getUserById(userid);
+		List<Ingredient> oldPantry = user.getPantry();
+		//add the new ingredients to the old list
+		for(Ingredient ingredient: pantry) {
+			for(int i=0; i < oldPantry.size(); i++) {
+				if(ingredient.getName() == oldPantry.get(i).getName()) {
+					oldPantry.remove(i);
+				}
+
+			}
+		}
+		//add it to the user
+		user.setPantry(oldPantry);
+		
+		userRepository.updateUser(user);
+	}
 
 }

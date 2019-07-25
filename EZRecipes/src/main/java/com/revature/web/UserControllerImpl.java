@@ -33,13 +33,21 @@ public class UserControllerImpl implements UserController {
 		return pantry;
 	}
 	
+	//returns the appended value
 	@PostMapping(value="/pantry/update/{id}", consumes=MediaType.APPLICATION_JSON_VALUE)
-	public void postPantry(@PathVariable("id") int userid, @RequestBody Ingredient pantry) {
-		System.out.println("pls help me");
+	public Ingredient postPantry(@PathVariable("id") int userid, @RequestBody Ingredient pantry) {
 		List<Ingredient> list = new ArrayList<Ingredient>();
 		list.add(pantry);
 		
 		userService.setPantryById(list, userid);
+		//this return is actually just for angular
+		return pantry;
+	}
+	
+	@PostMapping(value="/pantry/delete/{id}", consumes=MediaType.APPLICATION_JSON_VALUE)
+	public void deletePantryItem(@PathVariable("id") int userid, @RequestBody Ingredient pantry) {
+		List<Ingredient> list = new ArrayList<Ingredient>();
+		userService.deletePantryItemById(list, userid);
 	}
 
 }
