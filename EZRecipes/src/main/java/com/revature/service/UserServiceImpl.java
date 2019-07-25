@@ -54,15 +54,14 @@ public class UserServiceImpl implements UserService {
 		//add the new ingredients to the old list
 		for(Ingredient ingredient: pantry) {
 			for(int i=0; i < oldPantry.size(); i++) {
-				if(ingredient.getName() == oldPantry.get(i).getName()) {
+				if(ingredient.getIngredientId() == oldPantry.get(i).getIngredientId()) {
 					oldPantry.remove(i);
 				}
-
 			}
 		}
+		
 		//add it to the user
 		user.setPantry(oldPantry);
-		
 		userRepository.updateUser(user);
 	}
 
