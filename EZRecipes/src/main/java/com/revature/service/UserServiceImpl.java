@@ -26,6 +26,7 @@ public class UserServiceImpl implements UserService {
 		this.userRepository = userRepository;
 	}
 
+
 	//returns a list of ingredients given a userid
 	public List<Ingredient> getPantryById(int userid) {
 		List<Ingredient> pantry = userRepository.getUserById(userid).getPantry();
@@ -64,5 +65,6 @@ public class UserServiceImpl implements UserService {
 		user.setPantry(oldPantry);
 		userRepository.updateUser(user);
 	}
+
 
 }

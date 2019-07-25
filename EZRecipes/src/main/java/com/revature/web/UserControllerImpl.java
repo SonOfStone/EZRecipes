@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.Ingredient;
 import com.revature.service.UserService;
+
+
+
 @RestController
 @RequestMapping(value="/user")
 public class UserControllerImpl implements UserController {
@@ -25,12 +28,14 @@ public class UserControllerImpl implements UserController {
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
+
 	
 	@GetMapping(value="/pantry/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<Ingredient> getPantryById(@PathVariable("id") int userid) {
 		List<Ingredient> pantry = userService.getPantryById(userid);
 		return pantry;
+
 	}
 	
 	//returns the appended value

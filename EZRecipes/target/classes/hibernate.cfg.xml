@@ -19,7 +19,7 @@
 		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
 		<property name="hibernate.cache.use_second_level_cache">true</property>
 		<mapping class="com.revature.model.User"/>
-		<mapping class="com.revature.model.Recipe"/>
+		<mapping class="com.revature.model.meals"/>
 		<mapping class="com.revature.model.Ingredient"/>
 		<mapping class="com.revature.model.Favorite"/>
 		<mapping class="com.revature.model.Restriction"/>
