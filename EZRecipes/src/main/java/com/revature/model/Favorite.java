@@ -3,8 +3,8 @@ package com.revature.model;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="favorites", schema="ezrecipes")
+//@Entity
+//@Table(name="favorites", schema="ezrecipes")
 public class Favorite {
 private User userId;
 private meals mealsId;

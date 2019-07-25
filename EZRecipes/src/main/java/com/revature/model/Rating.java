@@ -3,15 +3,17 @@ package com.revature.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Id;
 
-@Entity
-@Table(name = "ratings", schema = "ezrecipes")
+//@Entity
+//@Table(name = "ratings", schema = "ezrecipes")
 public class Rating {
-	@Column(name = "userId")
+//	@Id
+//	@Column(name = "userId")
 	private User userId;
-	@Column(name = "idMeals")
+//	@Column(name = "idMeals")
 	private meals idMeals;
-	@Column(name = "rating")
+//	@Column(name = "rating")
 	private double rating;
 
 	public Rating(User userId, meals idMeals, double rating) {

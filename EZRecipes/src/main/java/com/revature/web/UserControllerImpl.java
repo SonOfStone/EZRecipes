@@ -1,5 +1,6 @@
 package com.revature.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -41,6 +43,7 @@ public class UserControllerImpl implements UserController {
 		return pantry;
 
 	}
+
 	@PostMapping(path ="/login/", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public boolean login(@RequestParam(value="login[]") String[] userCredientials) {
 		if(userService.isValidUser(userCredientials[0], userCredientials[1], request, response)) {
@@ -49,6 +52,26 @@ public class UserControllerImpl implements UserController {
 		}
 		return false;
 		
+	}
+	//returns the appended value
+	@PostMapping(value="/pantry/update/{id}", consumes=MediaType.APPLICATION_JSON_VALUE)
+	public Ingredient postPantry(@PathVariable("id") int userid, @RequestBody Ingredient pantry) {
+		List<Ingredient> list = new ArrayList<Ingredient>();
+		list.add(pantry);
+		
+		userService.setPantryById(list, userid);
+		//this return is actually just for angular
+		return pantry;
+	}
+	
+	@PostMapping(value="/pantry/delete/{id}", consumes=MediaType.APPLICATION_JSON_VALUE)
+	public Ingredient deletePantryItem(@PathVariable("id") int userid, @RequestBody Ingredient pantry) {
+		List<Ingredient> list = new ArrayList<Ingredient>();
+		list.add(pantry);
+		userService.deletePantryItemById(list, userid);
+		
+		//this return is actually just for angular
+		return pantry;
 	}
 
 }
