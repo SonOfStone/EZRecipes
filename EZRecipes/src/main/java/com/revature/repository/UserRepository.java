@@ -9,4 +9,7 @@ public interface UserRepository {
 	List<User> getAllUsers();
 	User getUserById(int id);
 	void deleteUserById(int id);
+	void updateUser(User user);
+	void deleteUser(User user);
+	void insertUser(User user);
 }

@@ -1,7 +1,6 @@
 package com.revature.repository;
 
 import java.util.ArrayList;
-
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -14,6 +13,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
+import com.revature.model.Ingredient;
 import com.revature.model.User;
 import com.revature.util.SessionFactory;
 
@@ -91,4 +91,51 @@ public class UserRepositoryImpl implements UserRepository {
 		}
 	}
 
+	public void updateUser(User user) {
+		Session session = null;
+		Transaction tx = null;
+		try {
+			session = SessionFactory.getSession();
+			tx = session.beginTransaction();
+			session.merge(user);
+			tx.commit();
+		}catch(HibernateException e) {
+			e.printStackTrace();
+			tx.rollback();
+		}finally {
+			session.close();
+		}
+	}
+	
+	public void deleteUser(User user) {
+		Session session = null;
+		Transaction tx = null;
+		try {
+			session = SessionFactory.getSession();
+			tx = session.beginTransaction();
+			session.delete(user);
+			tx.commit();
+		}catch(HibernateException e) {
+			e.printStackTrace();
+			tx.rollback();
+		}finally {
+			session.close();
+		}
+	}
+	
+	public void insertUser(User user) {
+		Session session = null;
+		Transaction tx = null;
+		try {
+			session = SessionFactory.getSession();
+			tx = session.beginTransaction();
+			session.save(user);
+			tx.commit();
+		}catch(HibernateException e) {
+			e.printStackTrace();
+			tx.rollback();
+		}finally {
+			session.close();
+		}
+	}
 }
