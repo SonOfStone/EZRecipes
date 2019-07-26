@@ -24,16 +24,23 @@ public class UserRepositoryImpl implements UserRepository {
 	public User getUserByUsername(String username) {
 		User user = null;
 		Session session = null;
+		Transaction tx = null;
 		try {
 			session = SessionFactory.getSession();
+			tx = session.beginTransaction();
 			CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
 			CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
 			Root<User> root = criteriaQuery.from(User.class);
 			criteriaQuery.select(root).where(criteriaBuilder.equal(root.get("username"), username));
 			Query<User> query = session.createQuery(criteriaQuery);
-			user = query.getSingleResult();
+			List<User> results = query.getResultList();
+			if(!results.isEmpty()) {
+				user = results.get(0);
+			}
+			tx.commit();
 		} catch (HibernateException e) {
 			e.printStackTrace();
+			tx.rollback();
 		} finally {
 			session.close();
 		}
@@ -61,7 +68,6 @@ public class UserRepositoryImpl implements UserRepository {
 		User user = null;
 		Session session = null;
 		Transaction tx = null;
-
 		try {
 			session = SessionFactory.getSession();
 			tx = session.beginTransaction();

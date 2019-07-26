@@ -1,5 +1,6 @@
 package com.revature.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -166,7 +167,7 @@ public class User {
 	}
 
 	public List<Ingredient> getPantry() {
-		return pantry;
+		return this.pantry;
 	}
 
 	public void setPantry(List<Ingredient> pantry) {
