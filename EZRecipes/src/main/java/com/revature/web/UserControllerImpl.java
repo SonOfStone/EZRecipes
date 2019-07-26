@@ -44,16 +44,12 @@ public class UserControllerImpl implements UserController {
 
 	}
 
-//	@PostMapping(path ="/login/", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-//	public boolean login(@RequestParam(value="login[]") String[] userCredientials) {
-//		if(userService.isValidUser(userCredientials[0], userCredientials[1], request, response)) {
-//
-//			return true;
-//		}
-//		return false;
-//
-//	}
-	
+	@PostMapping(path ="/register", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public boolean register(@RequestBody User user) {
+		if(userService.registerObj(user, request, response))
+		return true;
+		return false;
+	}
 	@PostMapping(path ="/login", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public Integer login(@RequestBody User user) {
 		return userService.isValidUserObj(user, request, response);
