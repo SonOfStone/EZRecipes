@@ -17,5 +17,6 @@ public interface UserService {
 	void deletePantryItemById(List<Ingredient> list, int userid);
 	Integer isValidUserObj(User user, HttpServletRequest request, HttpServletResponse response);
 	User getUserById(int userid);
+	boolean registerObj(User user, HttpServletRequest request, HttpServletResponse response);
 
 }
