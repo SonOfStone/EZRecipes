@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.Ingredient;
+import com.revature.model.User;
 import com.revature.service.UserService;
 
 
@@ -44,15 +44,21 @@ public class UserControllerImpl implements UserController {
 
 	}
 
-	@PostMapping(path ="/login/", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	public boolean login(@RequestParam(value="login[]") String[] userCredientials) {
-		if(userService.isValidUser(userCredientials[0], userCredientials[1], request, response)) {
-			
-			return true;
-		}
-		return false;
-		
+//	@PostMapping(path ="/login/", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+//	public boolean login(@RequestParam(value="login[]") String[] userCredientials) {
+//		if(userService.isValidUser(userCredientials[0], userCredientials[1], request, response)) {
+//
+//			return true;
+//		}
+//		return false;
+//
+//	}
+	
+	@PostMapping(path ="/login", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public Integer login(@RequestBody User user) {
+		return userService.isValidUserObj(user, request, response);
 	}
+	
 	//returns the appended value
 	@PostMapping(value="/pantry/update/{id}", consumes=MediaType.APPLICATION_JSON_VALUE)
 	public Ingredient postPantry(@PathVariable("id") int userid, @RequestBody Ingredient pantry) {
@@ -72,6 +78,11 @@ public class UserControllerImpl implements UserController {
 		
 		//this return is actually just for angular
 		return pantry;
+	}
+	
+	@GetMapping(value="/{id}")
+	public User getUser(@PathVariable("id") int userid) {
+		return userService.getUserById(userid);
 	}
 
 }

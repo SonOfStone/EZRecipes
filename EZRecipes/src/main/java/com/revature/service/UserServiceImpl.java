@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -79,4 +80,18 @@ public class UserServiceImpl implements UserService {
 		return false;
 	}
 
+	public Integer isValidUserObj(User user, HttpServletRequest request, HttpServletResponse response) {
+		User userFromDB = userRepository.getUserByUsername(user.getUsername());
+		if(userFromDB != null) {
+			if(user.getPassword().contentEquals(userFromDB.getPassword())) {
+				return userFromDB.getUserId();
+			}
+		}
+		return null;
+	}
+	
+	public User getUserById(int userid) {
+		User userFromDB = userRepository.getUserById(userid);
+		return userFromDB;
+	}
 }
